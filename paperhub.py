@@ -1,16 +1,26 @@
 # PaperHub - script to retrieve papers
 
 import pyperclip
-import
+import sys
 
-# 1. DOI or link
+# Pyperclip is not built-in, check and download if needed
+try:
+    import pyperclip
+except (ImportError, ModuleNotFoundError):
+    print('Pyperclip module not found. Please download it.')
+    exit()
+
+# Get DOI or link
 # clipboard
 # argument
 # manual input
 
-# 2. URL
+# Default: get DOI or link from clipboard,
+
+
+# URL
 # Sci-hub automatic redirect
 
-# 3. file
+# file
 # send via email
 # send to evernote
