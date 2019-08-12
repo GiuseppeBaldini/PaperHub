@@ -17,7 +17,9 @@ except (ImportError, ModuleNotFoundError):
 
 # By default get DOI / URL from clipboard
 try:
-    paper_id = pyperclip.paste() 
+    paper_id = pyperclip.paste()
+except ():
+    paper_id = input('Please input the paper DOI or URL here: > ')
 
 
 # URL
