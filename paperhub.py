@@ -1,6 +1,6 @@
 # PaperHub - script to retrieve papers
 
-import pyperclip
+import re
 import sys
 
 # Pyperclip is not built-in, check and download if needed
@@ -10,16 +10,27 @@ except (ImportError, ModuleNotFoundError):
     print('Pyperclip module not found. Please download it.')
     exit()
 
-# Get DOI or link:
-# clipboard
+# Check DOI / URL is in correct format
+link_regex = re.compile('''
+    http[s]?://
+    (?:[a-zA-Z]|
+    [0-9]|
+    [$-_@.&+]|
+    [!*\(\),]|
+    (?:%[0-9a-fA-F][0-9a-fA-F]))+''',
+    re.IGNORECASE|re.VERBOSE)
+
+match = re.search(link_regex, paper_link)
+
+# Get DOI or URL
+# Option 1: clipboard
+try:
+    paper_link = pyperclip.paste()
+except (#error):
+    paper_link = input('Please input the paper DOI or URL here: > ')
+
 # argument
 # manual input
-
-# By default get DOI / URL from clipboard
-try:
-    paper_id = pyperclip.paste()
-except ():
-    paper_id = input('Please input the paper DOI or URL here: > ')
 
 
 # URL
