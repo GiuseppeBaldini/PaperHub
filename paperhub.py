@@ -10,30 +10,42 @@ except (ImportError, ModuleNotFoundError):
     print('Pyperclip module not found. Please download it.')
     exit()
 
-# Check DOI / URL is in correct format
-link_regex = re.compile('''
+# Regex for links
+link_regex = re.compile(r'''(
     http[s]?://
     (?:[a-zA-Z]|
     [0-9]|
     [$-_@.&+]|
     [!*\(\),]|
-    (?:%[0-9a-fA-F][0-9a-fA-F]))+''',
-    re.IGNORECASE|re.VERBOSE)
-
-match = re.search(link_regex, paper_link)
+    (?:%[0-9a-fA-F][0-9a-fA-F]))+
+    )''', re.IGNORECASE | re.VERBOSE)
 
 # Get DOI or URL
-# Option 1: clipboard
+# Option 1: argument
+# Option 2: clipboard
 try:
-    paper_link = pyperclip.paste()
-except (#error):
-    paper_link = input('Please input the paper DOI or URL here: > ')
+    link = sys.argv[1]
+except IndexError:
+    link = pyperclip.paste()
 
-# argument
-# manual input
+# Option 3: manual input
+def regex_check(regex, link):
+    """
+    Check using regex. If no good, input manually until correct.
+    """
+    while True:
+        match = re.match(link_regex, link)
+        if match == None:
+            link = str(input('Input not valid. Enter valid DOI or URL: > '))
+            continue
+        else:
+            break
 
+# Check DOI / URL is in correct format
+regex_check(link_regex, link)
 
-# URL
+# Open browser > SciHub
+
 # Sci-hub automatic redirect
 
 # file:
