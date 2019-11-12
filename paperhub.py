@@ -31,7 +31,8 @@ except IndexError:
 # Option 3: manual input
 def regex_check(regex, link):
     """
-    Check using regex. If no good, input manually until correct.
+    Check using regex. If DOI/URL are not in the right format,
+    require manual input until correct.
     """
     while True:
         match = re.match(link_regex, link)
@@ -39,6 +40,7 @@ def regex_check(regex, link):
             link = str(input('Input not valid. Enter valid DOI or URL: > '))
             continue
         else:
+            print("Opening: " + link)
             break
 
 # Check DOI / URL is in correct format
