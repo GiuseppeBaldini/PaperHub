@@ -1,4 +1,4 @@
-# PaperHub - script to retrieve papers
+# Input DOI / URL
 
 import re
 import sys
@@ -40,17 +40,9 @@ def regex_check(regex, link):
             link = str(input('Input not valid. Enter valid DOI or URL: > '))
             continue
         else:
-            print("Opening: " + link)
             break
 
 # Check DOI / URL is in correct format
 regex_check(link_regex, link)
 
-# Open browser > SciHub
-
-# Sci-hub automatic redirect
-
-# file:
-# download locally
-# send via email
-# send to evernote
+print(link)
