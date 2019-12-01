@@ -20,15 +20,16 @@ link_regex = re.compile(r'''(
     (?:%[0-9a-fA-F][0-9a-fA-F]))+
     )''', re.IGNORECASE | re.VERBOSE)
 
-# Get DOI or URL
-# Option 1: argument
-# Option 2: clipboard
+# Get DOI / URL using different methods
+
+# Method 1: argument
 try:
     link = sys.argv[1]
+# Method 2: clipboard
 except IndexError:
     link = pyperclip.paste()
 
-# Option 3: manual input
+# Method 3: manual input
 def regex_check(regex, link):
     """
     Check using regex. If DOI/URL are not in the right format,
@@ -42,7 +43,4 @@ def regex_check(regex, link):
         else:
             break
 
-# Check DOI / URL is in correct format
 regex_check(link_regex, link)
-
-print(link)

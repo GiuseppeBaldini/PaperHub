@@ -1,5 +1,5 @@
 # Download paper 
 
-# download locally
+# save locally
 # send via email
 # send to evernote
