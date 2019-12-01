@@ -4,4 +4,6 @@
 # Sci-hub automatic redirect
 # Retrieve PDF file
 
-import input
+from input import *
+
+print(url)

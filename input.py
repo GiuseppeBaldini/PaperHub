@@ -24,10 +24,10 @@ link_regex = re.compile(r'''(
 
 # Method 1: argument
 try:
-    link = sys.argv[1]
+    input_link = sys.argv[1]
 # Method 2: clipboard
 except IndexError:
-    link = pyperclip.paste()
+    input_link = pyperclip.paste()
 
 # Method 3: manual input
 def regex_check(regex, link):
@@ -36,11 +36,11 @@ def regex_check(regex, link):
     require manual input until correct.
     """
     while True:
-        match = re.match(link_regex, link)
+        match = re.match(regex, link)
         if match == None:
             link = str(input('Input not valid. Enter valid DOI or URL: > '))
             continue
         else:
-            break
+            return link
 
-regex_check(link_regex, link)
+url = regex_check(link_regex, input_link)
