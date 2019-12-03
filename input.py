@@ -8,7 +8,7 @@ try:
     import pyperclip
 except (ImportError, ModuleNotFoundError):
     print('Pyperclip module not found. Please download it.')
-    exit()
+    sys.exit(0)
 
 # Regex for links
 link_regex = re.compile(r'''(
