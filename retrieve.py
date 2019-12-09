@@ -31,6 +31,8 @@ pdf_url = 'https:' + attr.split('#', 1)[0]
 
 # download pdf file
 r = requests.get(pdf_url, stream=True)
+print('Downloading from' + pdf_url)
+print(r.status_code) # success = 200
 
 with open(download_path, 'wb') as f:
     for chunk in r.iter_content(1024):
