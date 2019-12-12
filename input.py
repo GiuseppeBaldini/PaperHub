@@ -33,13 +33,16 @@ except IndexError:
 def regex_check(regex, link):
     """
     Check using regex. If DOI/URL are not in the right format,
-    require manual input until correct.
+    require manual input until correct or Enter to quit.
     """
     while True:
         match = re.match(regex, link)
         if match == None:
-            link = str(input('Input not valid. Enter valid DOI or URL: > '))
-            continue
+            link = str(input('''Enter valid DOI / URL or press Enter to quit: > '''))
+            if link == '':
+                exit()
+            else:
+                continue
         else:
             return link
 

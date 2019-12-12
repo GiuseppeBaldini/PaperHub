@@ -1,39 +1,33 @@
-# Retrieve paper
-
-# Open browser > SciHub
-# Sci-hub automatic redirect
-# Retrieve PDF file
+# Retrieve pdf file URL 
 
 from bs4 import BeautifulSoup
 import requests
 import input
 
-
 # test_url = https://www.sciencedirect.com/science/article/pii/S1364032119307270
-domain_finder = 'https://whereisscihub.now.sh/go'
-download_path = '..\\Tests\\Papers\\paper.pdf'
 
-# Get the most recent scihub domain
+# Automatically redirect to active scihub domain
+domain_finder = 'https://whereisscihub.now.sh/go'
+
+# Default local download path
+download_path = '..\\Tests\\Papers\\paper.pdf' # TODO automatically name file
+
+# Open active scihub domain
 scihub = requests.get(domain_finder)
 
-# Find paper on scihub
-paper = scihub.url + '/' + input.url
-paper_url = requests.get(paper)
+# Search paper on scihub
+paper_url = requests.get(scihub.url + '/' + input.url)
 
+# Find the pdf file URL inside the page
 soup_txt = paper_url.text
 soup = BeautifulSoup(soup_txt, 'html.parser')
+article = soup.find('iframe') # tag
 
-article = soup.find('iframe')
-attr = article.attrs['src']
+# Retrieve tag attribute (our pdf ) 
+try:
+    attr = article.attrs['src'] # attribute
+except AttributeError:
+    print("Attr 'src' not found. Check that the URL is correct.")
+    exit()
 
-# pdf url
 pdf_url = 'https:' + attr.split('#', 1)[0]
-
-# download pdf file
-r = requests.get(pdf_url, stream=True)
-print('Downloading from' + pdf_url)
-print(r.status_code) # success = 200
-
-with open(download_path, 'wb') as f:
-    for chunk in r.iter_content(1024):
-        f.write(chunk)
