@@ -10,7 +10,7 @@ import input
 domain_finder = 'https://whereisscihub.now.sh/go'
 
 # Default local download path
-download_path = '..\\Tests\\Papers\\paper.pdf' # TODO automatically name file
+download_path = '..\\Tests\\Papers\\paper.pdf'
 
 # Open active scihub domain
 scihub = requests.get(domain_finder)
