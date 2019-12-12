@@ -1,6 +1,6 @@
 # Retrieve pdf file URL 
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bs
 import requests
 import input
 
@@ -8,9 +8,6 @@ import input
 
 # Automatically redirect to active scihub domain
 domain_finder = 'https://whereisscihub.now.sh/go'
-
-# Default local download path
-download_path = '..\\Tests\\Papers\\paper.pdf'
 
 # Open active scihub domain
 scihub = requests.get(domain_finder)
@@ -20,7 +17,7 @@ paper_url = requests.get(scihub.url + '/' + input.url)
 
 # Find the pdf file URL inside the page
 soup_txt = paper_url.text
-soup = BeautifulSoup(soup_txt, 'html.parser')
+soup = bs(soup_txt, 'html.parser')
 article = soup.find('iframe') # tag
 
 # Retrieve tag attribute (our pdf ) 
@@ -31,3 +28,9 @@ except AttributeError:
     exit()
 
 pdf_url = 'https:' + attr.split('#', 1)[0]
+
+# We can use part of the DOI as file name
+pdf_title = pdf_url.split('@', 1)[1] # includes .pdf
+
+# Default local download path
+download_path = 'output\\' + pdf_title
