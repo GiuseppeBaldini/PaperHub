@@ -1,9 +1,1 @@
-output/
-
-.pdf
-
-__pychache__
-
-.gitattributes
-
-.vscode/
+__pycache__/
