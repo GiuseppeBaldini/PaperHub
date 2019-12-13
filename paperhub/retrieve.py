@@ -4,8 +4,6 @@ from bs4 import BeautifulSoup as bs
 import requests
 import input
 
-# test_url = https://www.sciencedirect.com/science/article/pii/S1364032119307270
-
 # Automatically redirect to active scihub domain
 domain_finder = 'https://whereisscihub.now.sh/go'
 
@@ -33,4 +31,4 @@ pdf_url = 'https:' + attr.split('#', 1)[0]
 pdf_title = pdf_url.split('@', 1)[1] # includes .pdf
 
 # Default local download path
-download_path = 'output\\' + pdf_title
+download_path = '..\\..\\..\\..\\downloads\\' + pdf_title
