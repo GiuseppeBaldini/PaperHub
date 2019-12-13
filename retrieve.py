@@ -4,8 +4,6 @@ from bs4 import BeautifulSoup as bs
 import requests
 import input
 
-# test_url = https://www.sciencedirect.com/science/article/pii/S1364032119307270
-
 # Automatically redirect to active scihub domain
 domain_finder = 'https://whereisscihub.now.sh/go'
 
