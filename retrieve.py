@@ -31,4 +31,4 @@ pdf_url = 'https:' + attr.split('#', 1)[0]
 pdf_title = pdf_url.split('@', 1)[1] # includes .pdf
 
 # Default local download path
-download_path = 'output\\' + pdf_title
+download_path = '..\\..\\..\\downloads\\' + pdf_title
