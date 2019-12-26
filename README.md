@@ -20,6 +20,6 @@ It downloads the pdf file. Currently only storing locally in the default Downloa
 
 ## Dependencies
 
-* Pyperclip
-* Requests
-* Beautiful Soup
+* [Pyperclip](https://github.com/asweigart/pyperclip) (clipboard functions)
+* [Requests](https://2.python-requests.org//en/latest/) (HTTP library)
+* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) (library to parse HTTP / XML)
