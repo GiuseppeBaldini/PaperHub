@@ -23,3 +23,14 @@ It downloads the pdf file. Currently only storing locally in the default Downloa
 * [Pyperclip](https://github.com/asweigart/pyperclip) (clipboard functions)
 * [Requests](https://2.python-requests.org//en/latest/) (HTTP library)
 * [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) (library to parse HTTP / XML)
+
+## Improvements
+
+1. **Exception handling**
+Make script more resilient to edge cases errors 
+
+2 **Output**
+Optional arguments to send download file via email / store in Evernote
+
+3 **GUI** 
+Improve input experience and output choice using a simple graphic interface
