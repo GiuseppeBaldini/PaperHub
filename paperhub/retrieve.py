@@ -25,10 +25,18 @@ except AttributeError:
     print("Attr 'src' not found. Check that the URL is correct.")
     exit()
 
-pdf_url = 'https:' + attr.split('#', 1)[0]
+url_split = attr.split('#', 1)[0]
+
+if attr[:3] == 'http':
+    pdf_url = url_split
+else:
+    pdf_url = 'https:' + url_split
 
 # We can use part of the DOI as file name
-pdf_title = pdf_url.split('@', 1)[1] # includes .pdf
+try:
+    pdf_title = pdf_url.split('@', 1)[1] # includes .pdf
+except IndexError:
+    pdf_title = pdf_url
 
 # Default local download path
 download_path = '..\\..\\..\\..\\downloads\\' + pdf_title
