@@ -26,11 +26,11 @@ It downloads the pdf file. Currently only storing locally in the default Downloa
 
 ### Improvements
 
-**1. Exception handling**  
-Make script more resilient to edge cases errors 
-
-**2. Output**  
+**1. Output**  
 Optional arguments to send download file via email / store in Evernote
 
-**3. GUI**   
+**2. GUI**   
 Improve input experience and output choice using a simple graphic interface
+
+**3. CAPTCHA handling**
+Make script bypass occasional captcha prompt
