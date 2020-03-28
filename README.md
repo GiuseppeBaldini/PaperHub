@@ -28,11 +28,17 @@ It downloads the pdf file. Currently only storing locally in the default Downloa
 
 ### Improvements
 
-**1. Output**  
-Optional arguments to send download file via email / store in Evernote
+**1. Input**
+* Retrieve URL / DOIs directly from file
+* Download multiple papers 
 
-**2. GUI**   
+**2. Output**  
+Optional arguments to:
+* Send via email 
+* Store in Evernote
+
+**3. GUI**   
 Improve input experience and output choice using a simple graphic interface
 
-**3. CAPTCHA handling**
+**4. CAPTCHA handling**
 Make script bypass occasional captcha prompt
